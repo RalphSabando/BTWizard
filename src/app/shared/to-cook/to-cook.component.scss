@@ -1,0 +1,21 @@
+::ng-deep {
+    .to-cook {
+        &.mat-menu-panel {
+            min-width: 600px;
+            margin-top: 4px;
+        }
+        .number-picker {
+            span {
+                font-size: 30px;
+            }
+        }
+        .to-cook-table{
+            tr {
+                cursor: pointer;
+                &:hover {
+                    background: darken(white,3);
+                }
+            }
+        }
+    }
+}

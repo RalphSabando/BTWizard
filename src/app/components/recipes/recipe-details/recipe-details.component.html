@@ -1,0 +1,70 @@
+<div  class="container px-0 mt-5 h5">
+    <div class="d-flex align-items-center text-muted">
+        <button [routerLink]="['/']" routerLinkActive="router-link-active"  class="d-flex bg-transparent text-decoration-none border-0 w-auto align-items-center">
+            <mat-icon>keyboard_backspace</mat-icon>
+            <h3 class="mb-0 ml-2">Go back</h3> 
+        </button>
+    </div>
+    <mat-card class="" *ngIf="recipe; else noRecipe" class="mt-3 p-0">
+        <div class="d-flex">
+            <div class="square-container rounded-left">
+                <div [ngStyle]="{'background-image': 'url(' + getBackGroundImage() + ')'}" class="square rounded-left"></div>
+            </div>
+
+            <div class="recipe-details d-flex flex-column rounded-r p-4">
+                <span class="header">{{ recipe.name }}</span>
+                <div class="flex-shrink-0 flex-grow-0 overflow-y-auto">
+                    <div class="">
+                        <div class="mt-3">
+                            <span>Ingredients: </span>
+                        </div>
+                        <table class="w-100">
+                            <tr *ngFor="let ingr of recipe.ingredients">
+                                <td class="text-right pr-2" width="10%">
+                                    <span class="mb-0">{{ absoluteValue(ingr.quantity) }}</span>
+                                </td>
+                                <td class="text-center"  width="15%">
+                                    <span class="mb-0">({{ ingr.shortCode }})</span>
+                                </td>
+                                <td width="85%" class="text-left">
+                                    <span class="mb-0">{{ ingr.name }}</span>
+                                </td>
+                            </tr>
+                        </table>
+                        <ng-container *ngIf="needIngredients.length">
+                            <div class="mt-3">
+                                <span>Needed additional ingredients: </span>
+                            </div>
+                            <table class="w-100">
+                                <tr *ngFor="let ingr of needIngredients">
+                                    <td class="text-right pr-2" width="10%">
+                                        <span class="mb-0">{{ absoluteValue(ingr.quantity) }}</span>
+                                    </td>
+                                    <td class="text-center"  width="15%">
+                                        <span class="mb-0">({{ ingr.shortCode }})</span>
+                                    </td>
+                                    <td width="85%" class="text-left">
+                                        <span class="mb-0">{{ ingr.name }}</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-card>
+
+    <ng-container *ngIf="recipe">
+        <div class="mt-4">
+            <span>Instruction: </span>
+        </div>
+
+        <p [innerHtml]="convertLineBreak(recipe?.instructions)"></p>
+    </ng-container>
+
+    <ng-template #noRecipe>
+        <div class="mt-5 h2 text-center">Can't find what you're looking for!</div>
+    </ng-template>
+
+</div>

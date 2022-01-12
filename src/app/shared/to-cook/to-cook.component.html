@@ -1,0 +1,53 @@
+<div class="px-4 py-2">
+    <h2>To Cook</h2>
+
+    <div *ngIf="toCook?.length; else noToCook">
+        <table class="w-100 to-cook-table">
+            <tr (click)="goToRecipeDetails(item)" *ngFor="let item of toCook; let i = index">
+                <td class="py-2" width="20%">
+                    <div class="d-flex number-picker justify-content-center align-items-center">
+                        <button mat-icon-button color="primary" (click)="updateQuantity($event,item,true)">
+                            <mat-icon>add_circle</mat-icon>
+                        </button>
+                        <span class="mx-2 mt-1">{{ item.quantity }}</span>
+                        <button mat-icon-button [disabled]="item.quantity < 2" color="accent" (click)="updateQuantity($event,item)" >
+                            <mat-icon>remove_circle</mat-icon>
+                        </button>
+                    </div>
+                </td>
+                <td class="py-2" width="75%">
+                    <h2 class="mb-0">{{ item.recipeName }}</h2>
+                </td>
+                <td class="py-2 pr-2" >
+                    <div class="d-flex number-picker justify-content-center align-items-center">
+                        <mat-icon (click)="removeToCook($event,item)" color="accent" class="cursor-pointer">highlight_remove</mat-icon>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <ng-template #noToCook>
+        <div class="my-4 text-center block">You don't have anything to cook yet!</div>
+    </ng-template>
+
+    <div *ngIf="neededIngredients?.length" class="mt-3">
+        <h2  class="mt-3">Needed additional ingredients: </h2>
+        <table class="mt-2 w-100">
+            <tr *ngFor="let item of neededIngredients; let i = index">
+                <td class="text-right pr-2" width="15%">
+                    <h2 class="mb-0">{{ absoluteValue(item.quantity) }}</h2>
+                </td>
+                <td class="text-center"  width="10%">
+                    <h2 class="mb-0">({{ item.shortCode }})</h2>
+                </td>
+                <td class="w-75 text-left">
+                    <h2 class="mb-0">{{ item.name }}</h2>
+                </td>
+            </tr>
+        </table>
+
+
+    </div>
+
+    
+</div>

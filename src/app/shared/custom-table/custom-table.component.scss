@@ -1,0 +1,9 @@
+
+::ng-deep {
+    .clickable-row {
+        cursor: pointer;
+        &:hover {
+            background-color: darken(white,3);
+        }
+    }
+}

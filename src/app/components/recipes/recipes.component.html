@@ -1,0 +1,17 @@
+<div class="d-flex justify-content-between align-items-center">
+    <h2 class="mb-0">Recipes</h2>
+</div>
+
+<div class="mt-4">
+    <div class="d-flex justify-content-end align-items-center">
+        <input [formControl]="searchKey" type="text" placeholder="Search Recipe" class="form-control mat-elevation-z4 w-25">
+
+        <button class="ml-auto" (click)="addRecipe()" mat-raised-button color="primary">Add Recipe</button>
+    </div>
+
+    <div class="mt-5 row ">
+        <div *ngFor="let recipe of recipes$ | async" class="col-4 mb-3">
+            <app-recipe-card [recipe]="recipe"></app-recipe-card>
+        </div>
+    </div>
+</div>

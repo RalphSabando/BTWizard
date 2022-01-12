@@ -1,0 +1,5 @@
+<h2 mat-dialog-title>{{ dialogConfig.header }}</h2>
+<div mat-dialog-content>{{ dialogConfig.content }}</div>
+<div class="justify-content-end" mat-dialog-actions>
+    <button (click)="action(button?.action || '')" *ngFor="let button of dialogConfig.buttons" [color]="button.color" mat-flat-button>{{ button.name }}</button>
+</div>

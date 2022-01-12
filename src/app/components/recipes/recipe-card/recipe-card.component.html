@@ -1,0 +1,24 @@
+<div (click)="goToRecipeDetails($event)" [ngStyle]="{'background-image': 'url(' + getBackGroundImage() + ')'}" class="w-100 rounded shadow card-container">
+    <div class="backdrop rounded"></div>
+    <div class="content">
+        <div class="position-relative h-100 p-4 d-flex flex-column justify-content-between align-items-center">
+            <h1 class="text-white">{{ recipe.name }}</h1>
+            <div class="d-flex align-items-center w-100 justify-content-between">
+
+                <button (click)="editRecipe($event)" matTooltip="Edit Recipe" mat-icon-button color="primary" aria-label="Example icon button with a heart icon">
+                    <mat-icon>edit</mat-icon>
+                </button>
+
+                <button *ngIf="checkIfAdded(); else notAdded" matTooltip="Already added to To Cook" mat-icon-button color="warn" (click)="removeToCook($event)" aria-label="Example icon button with a heart icon">
+                    <mat-icon>favorite</mat-icon>
+                </button>
+                <ng-template #notAdded>
+                    <button (click)="addToCook($event)" matTooltip="Add to To Cook" mat-icon-button color="warn" aria-label="Example icon button with a heart icon">
+                        <mat-icon>favorite_border</mat-icon>
+                    </button>
+                </ng-template>
+            </div>
+        </div>
+        
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="shadow">
+    <div class="container">
+        <header class="d-flex justify-content-between py-3 mb-4">
+            <a routerLink="/" class="mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+              <span class="h4">Recipe App</span>
+            </a>
+        
+            <ul class="nav nav-pills">
+              <li *ngFor="let route of routes" class="nav-item text-secondary"><a [routerLink]="route.path" routerLinkActive="border-bottom border-primary rounded-0" class="nav-link" aria-current="page">{{ route.name }}</a></li>
+            </ul>
+
+            <button [matBadge]="(toCook$ |async)?.length"  [matBadgeHidden]="(toCook$ |async)!.length == 0" matBadgeColor="accent" color="primary" mat-mini-fab aria-label="To Cook" [matMenuTriggerFor]="toCook">
+              <mat-icon aria-hidden="false" aria-label="Card View">fastfood</mat-icon>
+            </button>
+            <mat-menu class="to-cook" #toCook="matMenu" xPosition="before">
+                <app-to-cook [neededIngredients]="neededIngredients$ | async" [toCook]="toCookRecipe$ | async"></app-to-cook>
+            </mat-menu>
+        </header>
+    </div>
+</div>
+

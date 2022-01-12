@@ -1,0 +1,84 @@
+{
+  "inventory": [
+    {
+      "name": "Whip Cream",
+      "inventoryCode": "whip-cream",
+      "unitId": 1,
+      "quantity": 2,
+      "id": 1
+    },
+    {
+      "name": "Condensed Milk",
+      "inventoryCode": "condensed-milk",
+      "unitId": 1,
+      "quantity": 3,
+      "id": 2
+    },
+    {
+      "name": "Grated Parmesan cheese",
+      "inventoryCode": "grated-parmesan-cheese",
+      "unitId": 3,
+      "quantity": 3,
+      "id": 3
+    },
+    {
+      "name": "Fresh Thyme Leaves",
+      "inventoryCode": "fresh-thyme-leaves",
+      "unitId": 4,
+      "quantity": 10,
+      "id": 4
+    }
+  ],
+  "units": [
+    {
+      "id": 1,
+      "shortCode": "c",
+      "name": "Cups"
+    },
+    {
+      "id": 2,
+      "shortCode": "tbsp",
+      "name": "Tablespoon"
+    },
+    {
+      "id": 3,
+      "shortCode": "oz",
+      "name": "Ounce"
+    },
+    {
+      "id": 4,
+      "shortCode": "tsp",
+      "name": "Teaspoon"
+    },
+    {
+      "id": 5,
+      "shortCode": "pt",
+      "name": "Pint"
+    }
+  ],
+  "recipes": [
+    {
+      "name": "Parmesan Thyme Crisps",
+      "imgUrl": "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F9094843.jpg&q=85",
+      "instructions": "Step 1\nPreheat oven to 300 degrees F (150 degrees C). Line 2 baking sheets with parchment paper.\n\nStep 2\nCombine Parmesan cheese and thyme leaves in a bowl. Drop heaping teaspoonfuls of the mixture onto the lined baking sheets, spacing them 2 inches apart. Lightly press with your fingers to flatten them into circles 2 inches in diameter.\n\nStep 3\nBake in the preheated oven until slightly browned and crisp, 8 to 10 minutes. Cool slightly on the baking sheets, about 2 minutes. Loosen edges with a spatula and lift off the parchment paper. Transfer to wire racks and let cool completely until firm, about 10 minutes.",
+      "ingredients": [
+        {
+          "ingredientId": 4,
+          "quantity": 8
+        },
+        {
+          "ingredientId": 3,
+          "quantity": 1
+        }
+      ],
+      "slag": "parmesan-thyme-crisps",
+      "id": 1
+    }
+  ],
+  "to_cook": [
+    {
+      "id": 1,
+      "quantity": 3
+    }
+  ]
+}
